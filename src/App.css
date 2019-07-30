@@ -1,0 +1,11 @@
+.header {
+  height: 15vh;
+  color: white;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+}
+
+.header_text{
+  font-family: Cambria;
+}

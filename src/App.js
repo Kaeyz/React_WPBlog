@@ -1,10 +1,15 @@
 import React from 'react';
 import './App.css';
 
+
+// Components
+import Home from './pages/Home';
+
+
 function App() {
 	return (
 		<div>
-			Welcome to my blog
+			<Home />
 		</div>
 	);
 }
