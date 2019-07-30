@@ -20,3 +20,11 @@ body {
   justify-items: center;
   align-content: center;
 }
+
+.blog {
+  margin-top: 15vh;
+  margin-bottom: 15vh;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+}
