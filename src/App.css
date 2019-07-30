@@ -1,3 +1,6 @@
+body {
+  height: 100vh;
+}
 .header {
   height: 15vh;
   color: white;
@@ -8,4 +11,12 @@
 
 .header_text{
   font-family: Cambria;
+}
+
+.footer {
+  height: 7vh;
+  color: white;
+  display: grid;
+  justify-items: center;
+  align-content: center;
 }
