@@ -8,7 +8,7 @@ export default class Home extends Component {
 	render() {
 		return (
 			<div>
-				<Header />
+				<Header header="Epower Blog" />
 				<BlogList />
 				<Footer />
 			</div>
