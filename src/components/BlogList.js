@@ -41,12 +41,13 @@ class BlogList extends Component {
 			return (
 				<div>
 					<div className='blog'>
-						{selected.filter(post=> post !== undefined ).map((post, key) => (
+						{selected.filter(post => post !== undefined).map((post, key) => (
 							<PostCard
 								key={key}
 								excerpt={post.excerpt.rendered}
 								image={post.featured_image_thumbnail}
 								title={post.title.rendered}
+								link={`/blog/${post.slug}`}
 							/>
 						))}
 					</div>

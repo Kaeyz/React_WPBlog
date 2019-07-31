@@ -2,7 +2,7 @@ body {
   height: 100vh;
 }
 .header {
-  height: 15vh;
+  height: auto;
   color: white;
   display: grid;
   justify-items: center;
@@ -38,4 +38,14 @@ body {
 
 .page-item {
   margin: 5px;
+}
+
+.post_body{
+  margin-top: 15vh;
+  margin-bottom: 10vh;
+}
+
+.post_image {
+  height: 40vh;
+  width: 50vw
 }

@@ -30,7 +30,7 @@ export default (state = initialState, action) => {
 	case GET_POST:
 		return {
 			...state,
-			post: action.payload,
+			post: state.posts.filter(post => post.slug === action.payload)[0],
 			loading: false
 		};
 	case NEXT_PAGE:
