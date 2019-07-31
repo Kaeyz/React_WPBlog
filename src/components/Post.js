@@ -29,7 +29,7 @@ class Post extends Component {
 					subHeader={`PUBLISHED ON ${post_date}`}
 				/>
 				<div className="container post_body">
-					<img src={featured_image} className="img_fluid post_image" />
+					<img src={featured_image} className="img_fluid post_image" alt='...'/>
 					<div dangerouslySetInnerHTML={{ __html: content.rendered }} />
 				</div>
 
