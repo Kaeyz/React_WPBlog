@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { GET_POSTS, POST_LOADING } from './types';
+import { GET_POSTS, POST_LOADING, NEXT_PAGE, PREV_PAGE } from './types';
 
 // Get Posts
 export const getPosts = () => dispatch => {
@@ -16,3 +16,15 @@ export const getPosts = () => dispatch => {
 		.catch(err => console.error(err));
 };
 
+export const nextPage = () => {
+	return {
+		type: NEXT_PAGE
+	};
+};
+
+
+export const prevPage = () => {
+	return {
+		type: PREV_PAGE
+	};
+};

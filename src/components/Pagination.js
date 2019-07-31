@@ -1,17 +1,38 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default function Pagination() {
+
+export default function Pagination({ClickNextPage, ClickPrevPage, pages, currentPage}) {
 	return (
 		<div className='pg-container'>
 			<nav>
 				<ul className="pagination">
-					<li className="page-item"><a className="page-link" href="/">Previous</a></li>
-					<li className="page-item"><a className="page-link" href="/">1</a></li>
-					<li className="page-item"><a className="page-link" href="/">2</a></li>
-					<li className="page-item"><a className="page-link" href="/">3</a></li>
-					<li className="page-item"><a className="page-link" href="/">Next</a></li>
+					<li className="page-item">
+						<button
+							className={`btn ${currentPage <= 1 ? 'btn-light' : 'btn-info'}`}
+							onClick={ currentPage <= 1 ? '' : ClickPrevPage }
+						>
+							Prev
+						</button>
+					</li>
+
+					<li className="page-item">
+						<button
+							className={`btn ${currentPage >= pages ? 'btn-light' : 'btn-info'}`}
+							onClick={currentPage >= pages ? '' : ClickNextPage}
+						>
+							Next
+						</button>
+					</li>
 				</ul>
 			</nav>
 		</div>
 	);
 }
+
+Pagination.propTypes = {
+	pages: PropTypes.number.isRequired,
+	currentPage: PropTypes.number.isRequired,
+	ClickNextPage: PropTypes.func.isRequired,
+	ClickPrevPage: PropTypes.func.isRequired,
+};

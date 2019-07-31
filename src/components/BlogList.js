@@ -1,20 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getPosts } from '../actions/postActions';
+import { getPosts, nextPage, prevPage } from '../actions/postActions';
 
 import PostCard from './PostCard';
 import Pagination from './Pagination';
 
 
 class BlogList extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			currentPage: 1,
-			limit: 6
-		};
-	}
 
 	componentDidMount() {
 		this.props.getPosts();
@@ -30,9 +23,12 @@ class BlogList extends Component {
 		);
 	}
 
+
+
+
+
 	renderPosts() {
-		const { limit, currentPage } = this.state;
-		const posts = this.props.blog.posts;
+		const { limit, currentPage, posts } = this.props.blog;
 
 		if (this.props.blog.posts.length > 0) {
 			const selected = [];
@@ -55,10 +51,10 @@ class BlogList extends Component {
 						))}
 					</div>
 					<Pagination
-						currentPage={this.state.currentPage}
-						pages={this.props.pages}
-						nexPage={this.nextPage}
-						prevPage={this.prevPage}
+						currentPage={this.props.blog.currentPage}
+						pages={this.props.blog.pages}
+						ClickNextPage={this.props.nextPage}
+						ClickPrevPage={this.props.prevPage}
 					/>
 				</div>
 			);
@@ -67,17 +63,7 @@ class BlogList extends Component {
 		}
 	}
 
-	nextPage() {
-		if (this.state.currentPage < this.props.pages) {
-			this.setState({ currentPage: this.state.currentPage + 1 });
-		}
-	}
 
-	prevPage() {
-		if (this.state.currentPage > 1) {
-			this.setState({ currentPage: this.state.currentPage - 1 });
-		}
-	}
 
 	render() {
 		return (
@@ -91,12 +77,12 @@ class BlogList extends Component {
 BlogList.propTypes = {
 	getPosts: PropTypes.func.isRequired,
 	blog: PropTypes.object.isRequired,
-	pages: PropTypes.number.isRequired
+	prevPage: PropTypes.func.isRequired,
+	nextPage: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
-	blog: state.blog,
-	pages: Math.ceil(state.blog.posts.length / 6)
+	blog: state.blog
 });
 
-export default connect(mapStateToProps, { getPosts })(BlogList);
+export default connect(mapStateToProps, { getPosts, prevPage, nextPage })(BlogList);

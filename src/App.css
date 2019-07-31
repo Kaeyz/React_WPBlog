@@ -35,3 +35,7 @@ body {
   margin-top: 5px;
   margin-bottom: 15vh;
 }
+
+.page-item {
+  margin: 5px;
+}
